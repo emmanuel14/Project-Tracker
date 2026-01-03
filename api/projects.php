@@ -1,5 +1,5 @@
 <?php
-// api/projects.php - Complete Projects CRUD with debugging
+
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
@@ -16,7 +16,7 @@ $response = ['error' => 'Unknown error'];
 $http_code = 500;
 
 try {
-    // Verify config files exist
+    
     $db_file = __DIR__ . '/../config/Database.php';
     $const_file = __DIR__ . '/../config/Constants.php';
     $jwt_file = __DIR__ . '/../config/JWT.php';
@@ -31,12 +31,12 @@ try {
         throw new Exception('JWT.php not found');
     }
     
-    // Include config files
+
     require_once $db_file;
     require_once $const_file;
     require_once $jwt_file;
     
-    // Verify user is authenticated
+  
     $user = verifyToken();
     
     // Connect to database
@@ -76,15 +76,13 @@ try {
     $http_code = 400;
 }
 
-// Clear buffer and send response
+
 ob_end_clean();
 http_response_code($http_code);
 echo json_encode($response);
 exit();
 
-// ============================================
-// HANDLER FUNCTIONS
-// ============================================
+
 
 function handleGetAllProjects($conn, $user) {
     global $response, $http_code;
@@ -210,7 +208,7 @@ function handleUpdateProject($conn, $user, $project_id) {
     global $response, $http_code;
     
     try {
-        // Get current project
+       
         $stmt = $conn->prepare("SELECT created_by FROM projects WHERE id = ?");
         $stmt->bind_param('i', $project_id);
         $stmt->execute();
@@ -223,12 +221,12 @@ function handleUpdateProject($conn, $user, $project_id) {
         $project = $result->fetch_assoc();
         $stmt->close();
         
-        // Check authorization
+        
         if ($user['role'] !== 'admin' && $project['created_by'] != $user['user_id']) {
             throw new Exception('Unauthorized');
         }
         
-        // Get update data
+        
         $input = file_get_contents('php://input');
         $data = json_decode($input, true);
         
@@ -240,7 +238,7 @@ function handleUpdateProject($conn, $user, $project_id) {
             throw new Exception('No fields to update');
         }
         
-        // Build dynamic update query
+        
         $updates = [];
         $params = [];
         $types = '';
@@ -293,7 +291,7 @@ function handleDeleteProject($conn, $user, $project_id) {
     global $response, $http_code;
     
     try {
-        // Get project
+        
         $stmt = $conn->prepare("SELECT created_by FROM projects WHERE id = ?");
         $stmt->bind_param('i', $project_id);
         $stmt->execute();
@@ -306,7 +304,7 @@ function handleDeleteProject($conn, $user, $project_id) {
         $project = $result->fetch_assoc();
         $stmt->close();
         
-        // Check authorization
+        
         if ($user['role'] !== 'admin' && $project['created_by'] != $user['user_id']) {
             throw new Exception('Unauthorized');
         }
@@ -337,7 +335,7 @@ function logActivity($conn, $user_id, $action, $project_id, $description) {
         $stmt->execute();
         $stmt->close();
     } catch (Exception $e) {
-        // Log errors are not critical
+     
     }
 }
 ?>
