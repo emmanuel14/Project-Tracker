@@ -86,20 +86,3 @@ function verifyToken() {
 ?>
 ```
 
-## 📝 **Steps to Create Files:**
-
-1. **Open Notepad** or **VS Code**
-2. **Copy the code** from above
-3. **Save as** (File → Save As):
-   - **Filename**: `Constants.php`
-   - **Location**: `C:\xampp\htdocs\project-tracker\config\`
-   - **Save as type**: All Files (*.*)
-   - **Encoding**: UTF-8 (NOT UTF-8 with BOM)
-
-4. **Repeat for the other 3 files**
-
-## ✅ **Verify Files Exist**
-
-Open Windows Explorer and check:
-```
-C:\xampp\htdocs\project-tracker\config\
