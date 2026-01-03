@@ -1,5 +1,5 @@
 <?php
-// api/activity-logs.php - Fixed Activity Logs Endpoint
+
 error_reporting(E_ALL);
 ini_set('display_errors', 0);
 

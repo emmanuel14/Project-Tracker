@@ -1,5 +1,5 @@
 <?php
-// api/auth.php - Debug version to show exactly what's happening
+
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
@@ -10,14 +10,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 
-// Start output buffering to catch any stray output
+
 ob_start();
 
 $response = ['error' => 'Unknown error'];
 $http_code = 500;
 
 try {
-    // Check if files exist
+  
     $db_file = __DIR__ . '/../config/Database.php';
     $const_file = __DIR__ . '/../config/Constants.php';
     $jwt_file = __DIR__ . '/../config/JWT.php';
@@ -32,7 +32,7 @@ try {
         throw new Exception('JWT.php not found at: ' . $jwt_file);
     }
     
-    // Include files
+
     require_once $db_file;
     require_once $const_file;
     require_once $jwt_file;
