@@ -1,5 +1,3 @@
--- Database Schema for Project Tracker
--- Execute this SQL to set up the database
 
 CREATE DATABASE IF NOT EXISTS project_tracker;
 USE project_tracker;

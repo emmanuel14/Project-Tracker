@@ -1,5 +1,5 @@
 <?php
-// config/Database.php - Database connection class
+
 
 class Database {
     private $host = 'localhost';
