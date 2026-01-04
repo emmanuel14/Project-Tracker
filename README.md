@@ -9,6 +9,10 @@ Full-stack project management app with vanilla PHP, MySQL, and JavaScript.
 3. Update database credentials in `config/Database.php`
 4. Start Apache & MySQL in XAMPP
 5. Open `http://localhost/project-tracker/frontend/login.html`
+6. Ensure you have an active internet connection when viewing the project on localhost.
+   - Some images used in the project are loaded from online sources.
+   - Internet access is required to display these images properly and to also prevent visual glitches.
+
 
 ## Usage
 
