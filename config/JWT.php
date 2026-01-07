@@ -12,7 +12,7 @@ class JWT {
         $header = ['alg' => $this->algo, 'typ' => 'JWT'];
         
         $payload['iat'] = time();
-        $payload['exp'] = time() + TOKEN_EXPIRY;
+        $payload['exp'] = time() + TOKEN_EXPIRY;;
         
         $header_encoded = $this->base64UrlEncode(json_encode($header));
         $payload_encoded = $this->base64UrlEncode(json_encode($payload));
