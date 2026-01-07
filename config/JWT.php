@@ -14,7 +14,7 @@ class JWT {
         $payload['iat'] = time();
         $payload['exp'] = time() + TOKEN_EXPIRY;
         
-        $header_encoded = $this->base64UrlEncode(json_encode($header));
+        $header_encoded = $this->base64.UrlEncode(json_encode($header));
         $payload_encoded = $this->base64UrlEncode(json_encode($payload));
         
         $signature = hash_hmac('sha256', "$header_encoded.$payload_encoded", $this->secret, true);
