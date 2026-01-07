@@ -28,7 +28,7 @@ class JWT {
         
         if (count($parts) !== 3) {
             return false;
-        }
+        }m
         
         [$header_encoded, $payload_encoded, $signature_encoded] = $parts;
         
