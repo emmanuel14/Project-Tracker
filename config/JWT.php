@@ -10,7 +10,7 @@ class JWT {
 
     public function encode($payload) {
         $header = ['alg' => $this->algo, 'typ' => 'JWT'];
-        
+        .
         $payload['iat'] = time();
         $payload['exp'] = time() + TOKEN_EXPIRY;
         
