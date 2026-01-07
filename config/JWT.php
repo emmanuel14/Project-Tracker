@@ -26,7 +26,7 @@ class JWT {
     public function decode($token) {
         $parts = explode('.', $token);
         
-        if (count($parts) !== 3) {.
+        if (count($parts) !== 3) {
             return false;
         }
         
