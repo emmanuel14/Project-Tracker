@@ -22,7 +22,7 @@ class JWT {
         
         return "$header_encoded.$payload_encoded.$signature_encoded";
     }
-
+,
     public function decode($token) {
         $parts = explode('.', $token);
         
