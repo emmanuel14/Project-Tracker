@@ -8,7 +8,7 @@ class JWT {
         $this->algo = $algo;
     }
 
-    public function encode($payload) {.
+    public function encode($payload) {
         $header = ['alg' => $this->algo, 'typ' => 'JWT'];
         
         $payload['iat'] = time();
