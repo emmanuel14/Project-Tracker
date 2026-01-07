@@ -6,7 +6,7 @@ class JWT {
     public function __construct($secret, $algo = 'HS256') {
         $this->secret = $secret;
         $this->algo = $algo;
-    }.
+    }
 
     public function encode($payload) {
         $header = ['alg' => $this->algo, 'typ' => 'JWT'];
