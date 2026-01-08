@@ -2,7 +2,7 @@
 // config/Database.php - Database connection class
 
 class Database {
-    private $host = 'localhost';.
+    private $host = 'localhost';
     private $db = 'project_tracker';
     private $user = 'root';
     private $password = '';
